@@ -1,13 +1,16 @@
-# Landing Page Project
+# for BuldingNavBar 
 
-## Table of Contents
+i created dynamic navbar by Creating function (bulidNavbar)
+ 1- looping through sections
+ 2- creating navLink for each section 
+ 3- each navLink have eventlistner to move to its section  
 
-* [Instructions](#instructions)
+# adding active styles to navLinks 
+ i created a function (activeNav)
+ 1- try to match each navLink with Its section
+ 2- then add a class to the navLink (selectedNav)
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+ # scrolling to matching section 
+ created 2 functions(sectionVP - toggleActiveClass)
+ 1- the first function return true if the section in the viewport 
+ 2- the second section loop through sections and pass the first section as a param , if its value true its add class (your-active-class)

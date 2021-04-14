@@ -25,20 +25,38 @@
 const sections =document.querySelectorAll('section');
 const navBar =document.querySelector('#navbar__list');
 
-function bulidNavbar() {
+const bulidNavbar = () => {
     for(let section of sections){
         sectionName = section.getAttribute('data-nav')
-    // when i click , it will go to the section
-        sectionlink = section.getAttribute('id')
-    
         listItem = document.createElement("li")
-        listItem.innerHTML = `<a class='menu__link' href='#${sectionlink}'>  ${sectionName}  </a>`
+        listItem.innerHTML = `<a class='menu__link'>  ${sectionName}  </a>`
+        listItem.addEventListener('click',function () {
+            section.scrollIntoView()
+        })
         navBar.append(listItem)
     }
 }
 bulidNavbar()
-section2 = document.querySelector('#section2')
-function sectionVP(sec){
+
+const activeNav = () => {
+    const navItems = document.querySelectorAll('a')
+    for(let section of sections) {
+        if(section.classList.contains('your-active-class')){
+            for(let navItem of navItems) {
+                if(navItem.innerText === section.getAttribute('data-nav')){
+                    if(!navItem.classList.contains('selectedNav')){
+                    navItem.classList.add('selectedNav')
+                }
+                } else{
+                    navItem.classList.remove('selectedNav')
+                }
+            }
+        }
+    }
+}
+
+    
+const sectionVP = (sec) => {
 const sectionV =sec.getBoundingClientRect();
 if(sectionV.bottom <= 700 ){
         if(sectionV.bottom >= 300) {
@@ -46,11 +64,13 @@ if(sectionV.bottom <= 700 ){
         }   
 }
 }
-function toggleActiveClass() {
+
+const toggleActiveClass = ()=> {
     for(let section of sections){
         if(sectionVP(section)){
             if(!section.classList.contains('your-active-class')){
                 section.classList.add('your-active-class')
+                activeNav()
             } 
         }else{
         section.classList.remove('your-active-class')

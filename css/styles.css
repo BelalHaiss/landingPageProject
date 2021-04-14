@@ -89,6 +89,11 @@ section {
     color: #fff;
     transition: ease 0.3s all;
 }
+.selectedNav{
+    background: rgb(4, 52, 88);
+    color: white  !important;
+    
+}
 
 /* Header Styles */
 .page__header {
